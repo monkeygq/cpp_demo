@@ -23,5 +23,6 @@ int main() {
 /*
  * 1. override ostream operator <<
  * 2. practice using template
+ * compile: g++ -std=c++11 override_operator.cpp -o override_operator
  * output: [0, 1, 2]
  */
