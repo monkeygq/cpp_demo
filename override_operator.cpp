@@ -3,7 +3,7 @@
 #include <vector>
 
 template <typename T>
-std::ostream &operator<<(std::ostream& out, std::vector<T> &v) {
+std::ostream &operator<<(std::ostream &out, std::vector<T> &v) {
     out << "[";
     for(auto it = v.cbegin(); it != v.cend(); ++it) {
         if(it != v.cbegin())
