@@ -19,3 +19,9 @@ int main() {
     std::cout << vi << std::endl;
     return 0;
 }
+
+/*
+ * 1. override ostream operator <<
+ * 2. practice using template
+ * output: [0, 1, 2]
+ */
