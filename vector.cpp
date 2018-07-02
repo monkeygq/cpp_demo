@@ -56,8 +56,34 @@ int main() {
     /* returns a reference to the element at specified location pos, with bounds checking
      * if pos is not within the range of the container, an exception of type std::out_of_range is thrown
      * */
-    std::cout << "vs8.at(2) = " << vs8.at(2) << std::endl;
+    std::cout << "vs8.at(2) = " << vs8.at(2) << std::endl;/* vs8.at(2) = 3 */
 
     /* returns a reference to the element at specified location pos. No bounds checking is performed */
-    std::cout << "vs8[2] = " << vs8[2] << std::endl;
+    std::cout << "vs8[2] = " << vs8[2] << std::endl;/* vs8[2] = 3 */
+
+	std::cout << "vs8.front() = " << vs8.front() << std::endl;/* vs8.front() = 1 */
+	std::cout << "vs8.back() = " << vs8.back() << std::endl;/* vs8.back() = 4 */
+
+	/* return a pointer to the underlying element storage. 
+	 * for non-empty containers, the returned pointer compares equal to the address of the first element. 
+	 * If size() is 0, data() may or may not return a null pointer.
+	 * */
+	int *ptr = vs8.data();
+	std::cout << "*(ptr + 2) = " << *(ptr + 2) << std::endl;/* *(ptr + 2) = 3 */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
