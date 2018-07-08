@@ -63,5 +63,25 @@ int main() {
 	std::string s8(std::string("hello") + std::string("world"));
 	std::cout << s8 << std::endl; /* helloworld */
 
+	s8.assign(5, 'b');
+	s8.assign(s7);
+	s8.assign(s7, 1, 3);
+	s8.assign(std::string("hello") + std::string("world"));
+	s8.assign(ch, 8);
+	s8.assign(ch);
+	s8.assign(s5.begin(), s5.end());
+	std::cout << s8 << std::endl; /* hello world */
+
+	std::cout << s8.at(3) << std::endl; /* l */
+	std::cout << s8[3] << std::endl; /* l */
+	std::cout << s8.front() << std::endl; /* h */
+	std::cout << s8.back() << std::endl; /* d */
+	std::cout << s8.data() << std::endl; /* hello world */
+
+	std::cout << (void*)(s8.data()) << std::endl; /* 0x7ffeea3ca719 */
+	/* str.data() return a pointer that points to const char*  */
+	std::cout << static_cast<const void*>(s8.data()) << std::endl; /* 0x7ffeea3ca719 */
+	/* str.c_str() return a pointer that points to const char*, the pointer is same to str.data()  */
+	std::cout << static_cast<const void*>(s8.c_str()) << std::endl; /* 0x7ffeea3ca719 */
     return 0;
 }
