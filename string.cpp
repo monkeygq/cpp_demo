@@ -83,5 +83,59 @@ int main() {
 	std::cout << static_cast<const void*>(s8.data()) << std::endl; /* 0x7ffeea3ca719 */
 	/* str.c_str() return a pointer that points to const char*, the pointer is same to str.data()  */
 	std::cout << static_cast<const void*>(s8.c_str()) << std::endl; /* 0x7ffeea3ca719 */
+
+	for(auto it = s8.begin(); it != s8.end(); ++it)
+		std::cout << *it << std::endl;
+
+	std::cout << s8.empty() << std::endl; /* 0 */
+	std::cout << s8.size() << std::endl; /* 11 */
+	std::cout << s8.length() << std::endl; /* 11 */
+	std::cout << s8.max_size() << std::endl; /* 18446744073709551599 */
+	std::cout << s8.capacity() << std::endl; /* 22 */
+	s8.shrink_to_fit();
+	std::cout << s8.capacity() << std::endl; /* 22 */
+
+	std::string sub("wor");
+	/*
+	 * Finds the first substring equal to str, Search begins at pos(to right), default pos = 0
+	 * */
+	std::cout << static_cast<int>(s8.find(sub)) << std::endl; /* 6 */
+	std::cout << static_cast<int>(s8.find(sub, 6)) << std::endl; /* 6 */
+	std::cout << static_cast<int>(s8.find(sub, 7)) << std::endl; /* -1 */
+
+	char sub_ch[] = "worl";
+	std::cout << static_cast<int>(s8.find(sub_ch)) << std::endl; /* 6 */
+	std::cout << static_cast<int>(s8.find(sub_ch, 6)) << std::endl; /* 6 */
+	std::cout << static_cast<int>(s8.find(sub_ch, 7)) << std::endl; /* -1 */
+
+	/*
+	 *  Finds the first substring equal to the first count characters of the character string pointed to by s
+	 * */
+	std::cout << static_cast<int>(s8.find(sub_ch, 6, 3)) << std::endl; /* 6 */ /* pos=6, count=3 */
+	std::cout << static_cast<int>(s8.find(sub_ch, 7, 3)) << std::endl; /* -1 */ /* pos=7, count=3 */
+
+	/*
+	 * Finds the first character ch, search begins at pos, default pos = 0
+	 * */
+	std::cout << static_cast<int>(s8.find('l')) << std::endl; /* 2 */
+	std::cout << static_cast<int>(s8.find('l', 2)) << std::endl; /* 2 */
+
+	std::string s9("hello world world");
+	/*
+	 * Finds the last substring equal to str, Search begins at pos(to left), default pos = npos
+	 * */
+	std::cout << static_cast<int>(s9.rfind(sub)) << std::endl; /* 12 */
+	std::cout << static_cast<int>(s9.rfind(sub, 10)) << std::endl; /* 6 */
+	std::cout << static_cast<int>(s9.rfind(sub, 7)) << std::endl; /* 6 */
+
+	std::cout << static_cast<int>(s9.rfind(sub_ch)) << std::endl; /* 12 */
+	std::cout << static_cast<int>(s9.rfind(sub_ch, 10)) << std::endl; /* 6 */
+	std::cout << static_cast<int>(s9.rfind(sub_ch, 7)) << std::endl; /* 6 */
+
+	std::cout << static_cast<int>(s9.rfind(sub_ch, 10, 3)) << std::endl; /* 6 */
+	std::cout << static_cast<int>(s9.rfind(sub_ch, 7, 3)) << std::endl; /* 6 */
+
+	std::cout << static_cast<int>(s9.rfind('l')) << std::endl; /* 15 */
+	std::cout << static_cast<int>(s9.rfind('l', 2)) << std::endl; /* 2 */
     return 0;
 }
