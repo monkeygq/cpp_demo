@@ -137,5 +137,53 @@ int main() {
 
 	std::cout << static_cast<int>(s9.rfind('l')) << std::endl; /* 15 */
 	std::cout << static_cast<int>(s9.rfind('l', 2)) << std::endl; /* 2 */
+
+	/* 
+	 * Finds the first character equal to one of the characters in the given character sequence
+	 * */
+	std::cout << static_cast<int>(s9.find_first_of(sub)) << std::endl; /* 4 */
+	std::cout << static_cast<int>(s9.find_first_of(sub, 10)) << std::endl; /* 12 */
+	std::cout << static_cast<int>(s9.find_first_of("dlw")) << std::endl; /* 2 */
+	std::cout << static_cast<int>(s9.find_first_of("dlw", 10)) << std::endl; /* 10 */
+	std::cout << static_cast<int>(s9.find_first_of("dlw", 10, 2)) << std::endl; /* 10 */
+	std::cout << static_cast<int>(s9.find_first_of('w', 10)) << std::endl; /* 12 */
+
+	/* 
+	 * Finds the first character equal to none of the characters in the given character sequence
+	 * */
+	std::cout << static_cast<int>(s9.find_first_not_of(sub)) << std::endl; /* 0 */
+	std::cout << static_cast<int>(s9.find_first_not_of(sub, 10)) << std::endl; /* 10 */
+	std::cout << static_cast<int>(s9.find_first_not_of("dlw")) << std::endl; /* 0 */
+	std::cout << static_cast<int>(s9.find_first_not_of("dlw", 10)) << std::endl; /* 11 */
+	std::cout << static_cast<int>(s9.find_first_not_of("dlw", 10, 2)) << std::endl; /* 11 */
+	std::cout << static_cast<int>(s9.find_first_not_of('w', 10)) << std::endl; /* 10 */
+
+	/* Returns a substring [pos, pos+count), return string */
+	std::cout << s9.substr(6) << std::endl; /* world world */
+	std::cout << s9.substr(6, -1) << std::endl; /* world world */
+	std::cout << s9.substr(6, 5) << std::endl; /* world */
+
+	char copy_str[20];
+	/* Copies a substring [pos, pos+count) to char * pointed to by dest */
+	s9.copy(copy_str, 5); /* count = 5, pos = 0 */
+	std::cout << copy_str << std::endl; /* hello */
+	s9.copy(copy_str, 5, 6); /* count = 5, pos = 6 */
+	std::cout << copy_str << std::endl; /* world */
+
+	/*
+	 * Resizes the string to contain count characters.
+	 * If the current size is less than count, additional characters are appended.
+	 * If the current size is greater than count, the string is reduced to its first count elements.
+	 * */
+	std::cout << s9 << std::endl; /* hello world world */
+	s9.resize(11);
+	std::cout << s9 << std::endl; /* hello world */
+	s9.resize(15, '!');
+	std::cout << s9 << std::endl; /* hello world!!!! */
+
+	std::string s10("233");
+	s9.swap(s10);
+	std::cout << s9 << std::endl; /* 233 */
+	std::cout << s10 << std::endl; /* hello world!!!! */
     return 0;
 }
