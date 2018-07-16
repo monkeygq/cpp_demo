@@ -185,5 +185,53 @@ int main() {
 	s9.swap(s10);
 	std::cout << s9 << std::endl; /* 233 */
 	std::cout << s10 << std::endl; /* hello world!!!! */
+
+	/*
+	 * Replaces the part of the string indicated by either [pos, pos + count) or [first, last) with a new string.
+	 * */
+	s10.replace(0, 5, "world");
+	std::cout << s10 << std::endl; /* world world!!!! */
+
+	s10.replace(s10.begin(), s10.begin() + 5, "hello");
+	std::cout << s10 << std::endl; /* hello world!!!! */
+
+	s10.replace(s10.begin(), s10.begin() + 11, "hello");
+	std::cout << s10 << std::endl; /* hello!!!! */
+
+	s10.replace(s10.begin(), s10.begin() + 5, sub.begin(), sub.end());
+	std::cout << s10 << std::endl; /* wor!!!! */
+
+	s10.replace(3, 4, sub_ch);
+	std::cout << s10 << std::endl; /* worworl */
+
+	s10.replace(3, 4, sub_ch, 3);
+	std::cout << s10 << std::endl; /* worwor */
+
+	s10.replace(s10.begin(), s10.begin() + 3, sub_ch);
+	std::cout << s10 << std::endl; /* worlwor */
+
+	s10.replace(s10.begin(), s10.begin() + 4, sub_ch, 3);
+	std::cout << s10 << std::endl; /* worwor */
+
+	s10.replace(3, 3, 3, '!');
+	std::cout << s10 << std::endl; /* wor!!! */
+
+	s10.replace(s10.begin() + 3, s10.end(), 3, 'd');
+	std::cout << s10 << std::endl; /* worddd */
+
+	std::string base("word");
+	char base_ch[] = "word";
+	std::cout << s10.compare(base) << std::endl; /* 1 */
+	std::cout << s10.compare(base_ch) << std::endl; /* 1 */
+	std::cout << base.compare(s10) << std::endl; /* -1 */
+	std::cout << s10.compare(0, 4, base) << std::endl; /* 0 */
+	std::cout << s10.compare(0, 4, base_ch) << std::endl; /* 0 */
+	std::cout << s10.compare(0, 4, base_ch, 3) << std::endl; /* 1 */
+
+	s10.pop_back();
+	std::cout << s10 << std::endl; /* wordd */
+	s10.push_back('!');
+	std::cout << s10 << std::endl; /* wordd! */
+
     return 0;
 }
