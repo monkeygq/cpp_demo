@@ -1,0 +1,12 @@
+## usage
+ 1. 生成.o目标文件
+ g++ -c src/add.cpp -I ./include/ -o lib/add.o
+ g++ -c src/multi.cpp -I ./include/ -o lib/multi.o
+ 2. 生成静态库
+ ar -crv lib/libcalc.a lib/add.o lib/multi.o
+ 3. 生成动态库
+ g++ -shared -fPIC lib/add.o lib/multi.o -o ./lib/libcalc.so
+ 4. 使用静态库
+ g++ -static test.cpp -I ./include/ -L ./lib/ -lcalc -o test
+ 5. 使用动态库
+ g++ test.cpp -I ./include/ -L ./lib/ -lcalc -o test
